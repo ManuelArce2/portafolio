@@ -19,6 +19,11 @@
   </style>
 </head>
 <body>
+        <header class="header">
+        <nav class="header__menu">
+            <a class="header__menu__link" href="index.html">Home</a>
+            <a class="header__menu__link" href="about.html">Sobre mí</a>
+        </nav>
 
 <header>
   <h1>Política de Privacidad</h1>
@@ -109,92 +114,6 @@
   <p>&copy; 2025 — Manuel Arce — <a href="https://portafolio-cyan-pi-28.vercel.app/" target="_blank" rel="noopener">portafolio-cyan-pi-28.vercel.app</a></p>
 </footer>
 
-<!-- ---------- SNIPPETS / INSTRUCCIONES (Reemplaza los placeholders) ---------- -->
-
-<!-- 1) Snippet sugerido: Facebook Pixel (reemplaza [FB_PIXEL_ID]) -->
-<!--
-  Inserta esto dentro de <head> del sitio (si usas un gestor de etiquetas, instálalo desde allí).
-  Reemplaza [FB_PIXEL_ID] por tu id real.
--->
-<!--
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '[FB_PIXEL_ID]');
-  fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=[FB_PIXEL_ID]&ev=PageView&noscript=1"
-/></noscript>
--->
-
-<!-- 2) Ejemplo simple: enviar datos del formulario a n8n mediante fetch (reemplaza [N8N_WEBHOOK_URL]) -->
-<!--
-  Coloca en el formulario algo como: <form id="contactForm"> ... </form>
-  Este script interfiere con el submit y envía un JSON al webhook de n8n.
--->
-<script>
-  // Ejemplo: envío del formulario a n8n (reemplaza [N8N_WEBHOOK_URL])
-  (function(){
-    const form = document.getElementById('contactForm');
-    if(!form) return;
-    form.addEventListener('submit', async function(e){
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(form));
-      try {
-        await fetch('[N8N_WEBHOOK_URL]', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
-        // Puedes mostrar aquí un mensaje de éxito al usuario
-        alert('Mensaje enviado. ¡Gracias!');
-        form.reset();
-      } catch(err){
-        console.error('Error enviando a n8n:', err);
-        alert('Error al enviar. Intenta de nuevo más tarde.');
-      }
-    });
-  })();
-</script>
-
-<!-- 3) Banner sencillo de consentimiento de cookies -->
-<script>
-  (function(){
-    const key = 'mi_portfolio_cookie_consent_v1';
-    if(localStorage.getItem(key)) return;
-    const bar = document.createElement('div');
-    bar.className = 'cookie-consent';
-    bar.innerHTML = `
-      <div style="flex:1;">
-        Este sitio usa cookies para analizar tráfico y mostrar anuncios. Puedes aceptar o configurar tus preferencias.
-        <div style="margin-top:6px;"><a id="ver-detalles" href="#politica">Leer política</a></div>
-      </div>
-      <div style="display:flex; gap:8px; align-items:center;">
-        <button id="aceptar-cookies" class="btn">Aceptar</button>
-        <button id="rechazar-cookies" class="btn secondary">Rechazar</button>
-      </div>
-    `;
-    document.body.appendChild(bar);
-    document.getElementById('aceptar-cookies').onclick = function(){
-      localStorage.setItem(key, 'accepted');
-      bar.remove();
-      // Aquí podrías activar scripts de analítica / pixel si estaban bloqueados
-    };
-    document.getElementById('rechazar-cookies').onclick = function(){
-      localStorage.setItem(key, 'rejected');
-      bar.remove();
-      // Aquí podrías evitar cargar scripts de terceros
-    };
-  })();
-</script>
-<!-- ------------------------------------------------------------------------ -->
 
 </body>
 </html>
