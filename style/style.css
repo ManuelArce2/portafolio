@@ -84,7 +84,7 @@ body{
 .presentacion__enlaces__subtitulo{
     font-family: var(--fuente-krona);
     font-weight: 400;
-    font-size: 3rem;
+    font-size: 1.7rem;
 }
 
 .presentacion__enlaces__link{
